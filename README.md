@@ -1,2 +1,2 @@
 # ERP
-Enterprise resource planning
+Enterprise resource planning project using python Technology.
