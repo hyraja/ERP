@@ -56,11 +56,8 @@ def delete_employee():
 def serach_emp_by_name():
     name = input('Enter employee name for search : ')
     Flag = False
-    for i in emp.values():
-        if i['name'] == name:
-            Flag = True
-            print(
-                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    print(list(filter(lambda a: a["name"] == name, emp.values())))
+    Flag = True
     if Flag == False:
         print('employee not found')
 
@@ -69,11 +66,8 @@ def serach_emp_by_name():
 def serach_emp_by_age():
     age = int(input('Enter employee age for search : '))
     Flag = False
-    for i in emp.values():
-        if i['age'] == age:
-            Flag = True
-            print(
-                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    print(list(filter(lambda a: a["age"] == age, emp.values())))
+    Flag = True
     if Flag == False:
         print('employee not found')
 
@@ -82,11 +76,8 @@ def serach_emp_by_age():
 def serach_emp_by_gender():
     gender = input('Enter employee gender for search : ')
     Flag = False
-    for i in emp.values():
-        if i['gender'] == gender:
-            Flag = True
-            print(
-                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    print(list(filter(lambda a: a["gender"] == gender, emp.values())))
+    Flag = True
     if Flag == False:
         print('employee not found')
 
@@ -95,11 +86,8 @@ def serach_emp_by_gender():
 def serach_emp_by_salary():
     salary = int(input('Enter employee salary for search : '))
     Flag = False
-    for i in emp.values():
-        if i['salary'] == salary:
-            Flag = True
-            print(
-                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    print(list(filter(lambda a: a["salary"] == salary, emp.values())))
+    Flag = True
     if Flag == False:
         print('employee not found')
 
