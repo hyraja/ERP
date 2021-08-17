@@ -400,6 +400,7 @@ while True:
         manage_all_groups()
     elif ch == 7:
         manage_org()
+    elif ch == 8:
         break
     else:
         print('Invalid choice')
