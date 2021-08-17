@@ -1,7 +1,7 @@
 print(" " * 10, "ERP system")
 emp = {}  # empty dictionary
 group = {}  # empty dictionary
-
+org = {}  # empty dictionary
 # small decorator for displaying data
 
 
@@ -19,11 +19,12 @@ def my_decorator(func):
 def main_menu():
     print("1.Add Employee")
     print("2.Delete Employee")
-    print("3.Search Employee by name")
+    print("3.Search Employee")
     print("4.Change Employee Data")
     print("5.Display employee list")
     print("6.manage all groups")
-    print("7.exit")
+    print("7.manage organisation")
+    print("8.exit")
 
 
 @my_decorator
@@ -52,7 +53,7 @@ def delete_employee():
 
 
 @my_decorator
-def search_employee():
+def serach_emp_by_name():
     name = input('Enter employee name for search : ')
     Flag = False
     for i in emp.values():
@@ -62,6 +63,73 @@ def search_employee():
                 f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
     if Flag == False:
         print('employee not found')
+
+
+@my_decorator
+def serach_emp_by_age():
+    age = int(input('Enter employee age for search : '))
+    Flag = False
+    for i in emp.values():
+        if i['age'] == age:
+            Flag = True
+            print(
+                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    if Flag == False:
+        print('employee not found')
+
+
+@my_decorator
+def serach_emp_by_gender():
+    gender = input('Enter employee gender for search : ')
+    Flag = False
+    for i in emp.values():
+        if i['gender'] == gender:
+            Flag = True
+            print(
+                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    if Flag == False:
+        print('employee not found')
+
+
+@my_decorator
+def serach_emp_by_salary():
+    salary = int(input('Enter employee salary for search : '))
+    Flag = False
+    for i in emp.values():
+        if i['salary'] == salary:
+            Flag = True
+            print(
+                f' { i["name"]} | {i["age"]} | {i["gender"]} | {i["salary"]} | {i["previous_company"]}  | {i["joining_date"]} ')
+    if Flag == False:
+        print('employee not found')
+
+
+@my_decorator
+def search_emp_menu():
+    print("\t1.search employee by name")
+    print("\t2.search employee by age")
+    print("\t3.search employee by gender")
+    print("\t4.search employee by salary")
+    print("\t5.exit")
+
+
+@my_decorator
+def search_employee():
+    while True:
+        search_emp_menu()
+        ch = int(input("Enter choice : "))
+        if ch == 1:
+            serach_emp_by_name()
+        elif ch == 2:
+            serach_emp_by_age()
+        elif ch == 3:
+            serach_emp_by_gender()
+        elif ch == 4:
+            serach_emp_by_salary()
+        elif ch == 5:
+            break
+        else:
+            print("Invalid option ")
 
 
 @my_decorator
@@ -93,6 +161,72 @@ def display_data():
         print(
             f' { i }| { v["name"]} | {v["age"]} | {v["gender"]} | {v["salary"]} | {v["previous_company"]}  | {v["joining_date"]} ')
         print('-'*10)
+
+
+@my_decorator
+def create_org():
+    org_name = input("Enter organisation name : ")
+    if org_name not in org.keys():
+        org[org_name] = {}
+        print(f"{org_name} organisation created successfully ")
+
+    else:
+        print(f"{org_name} organisation already available on system !")
+
+
+@my_decorator
+def modify_org_name():
+    org_name = input("Enter organisation name : ")
+    if org_name not in org.keys():
+        print(f"{org_name} organisation not available on system !")
+    else:
+        temp = org[org_name]
+        del org[org_name]
+        org_name = input("Enter new organisation name : ")
+        org[org_name] = temp
+        print(f'{org_name} organisation name updated successfully ')
+
+
+@my_decorator
+def show_org():
+    org_name = input("Enter organisation name : ")
+    if org_name not in org.keys():
+        print(f"{org_name} organisation not available on the system !")
+    else:
+        print(org)
+        # for k, v in org[org_name].values():
+        #     name_str = ""
+        #     for i in v:
+        #         name_str = name_str + "|" + i + emp[i]['name']
+        #     print(f'{i} | {name_str}')
+
+
+@my_decorator
+def manage_org_menu():
+    print("1.Add organistion")
+    print("2.modify organistaion")
+    print("3.show organisation")
+    print("4.exit")
+
+
+def manage_org():
+
+    while True:
+        manage_org_menu()
+        ch = int(input("Enter choice : "))
+        if ch == 1:
+            # create organisation
+            create_org()
+        elif ch == 2:
+            # modify organisation
+            modify_org_name()
+        elif ch == 3:
+            # show organisation
+            show_org()
+        elif ch == 4:
+            break
+        else:
+            print("Invalid option")
 
 
 @my_decorator
@@ -265,6 +399,7 @@ while True:
         # manage all groups
         manage_all_groups()
     elif ch == 7:
+        manage_org()
         break
     else:
         print('Invalid choice')
