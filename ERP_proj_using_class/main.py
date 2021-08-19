@@ -47,7 +47,7 @@ def search_employee_menu():
 def serach_by_name():
     name = input("Enter name :")
     emp_l = list(filter(lambda a: a.name == name, emp))
-    if len(emp) == 0:  # not st #st
+    if len(emp_l) == 0: 
         print("No employee found")
     else:
         for i in emp:
@@ -58,7 +58,7 @@ def serach_by_name():
 def search_by_age():
     age = input("Enter age :")
     emp_l = list(filter(lambda a: a.age == age, emp))
-    if len(emp) == 0:  # not st #st
+    if len(emp_l) == 0:  # 
         print("No employee found")
     else:
         for i in emp:
@@ -69,7 +69,7 @@ def search_by_age():
 def search_by_salary():
     salary = input("Enter salary :")
     emp_l = list(filter(lambda a: a.salary == salary, emp))
-    if len(emp) == 0:  # not st #st
+    if len(emp_l) == 0:  
         print("No employee found")
     else:
         for i in emp:
@@ -80,7 +80,7 @@ def search_by_salary():
 def search_by_gender():
     gender = input("Enter gender :")
     emp_l = list(filter(lambda a: a.gender == gender, emp))
-    if len(emp) == 0:  # not st #st
+    if len(emp_l) == 0:  
         print("No employee found")
     else:
         for i in emp:
