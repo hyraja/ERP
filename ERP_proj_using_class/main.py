@@ -30,7 +30,7 @@ def add_employee():
 def delete_employee():
     name = input("Enter name :")
     emp_l = list(filter(lambda a: a.name == name, emp))
-    if len(emp) == 0:  # not st #st
+    if len(emp_l) == 0:  
         print("No employee found")
     else:
         pass
